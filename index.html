@@ -9,8 +9,9 @@
 <style>
 :root{--ink:#28243a;--muted:#777287;--purple:#51416f;--purple2:#756296;--pink:#f4e9f1;--cream:#fffaf4;--line:#e8e2ec;--gold:#f5e8bd;--white:#fff;--shadow:0 10px 30px rgba(48,37,66,.08)}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f8f3f8 0,#fffaf4 340px,#fff 100%);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}
-header{background:linear-gradient(120deg,#352b4a,#66527d);color:#fff;padding:34px 18px 28px}
-.hero{max-width:1120px;margin:auto}.eyebrow{font-size:12px;letter-spacing:.14em;opacity:.8}.hero h1{font-size:clamp(25px,4vw,38px);margin:8px 0 6px}.hero p{margin:0;color:#eee8f4;font-size:14px}
+header{padding:18px 16px 24px;background:linear-gradient(180deg,#312544,#57456c)}
+.hero{max-width:1120px;margin:auto;position:relative;border-radius:22px;overflow:hidden;box-shadow:0 14px 38px rgba(16,10,30,.22);background:#302247}.hero-art{display:block;width:100%;height:clamp(230px,34vw,390px);object-fit:cover;object-position:center 48%}.hero-copy{position:absolute;left:5%;top:50%;transform:translateY(-50%);width:min(43%,440px);padding:18px 20px;border-radius:18px;background:linear-gradient(90deg,rgba(38,26,59,.78),rgba(38,26,59,.28));color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.35)}.eyebrow{font-size:12px;letter-spacing:.14em;opacity:.9}.hero h1{font-size:clamp(25px,4vw,38px);line-height:1.25;margin:8px 0 10px}.hero p{margin:0;color:#fff;font-size:14px;line-height:1.7}
+select{max-width:100%;padding:11px 38px 11px 13px;border:1px solid #d9cfe2;border-radius:12px;background:#fff;color:var(--ink);font:inherit;font-size:14px;min-width:220px}label{font-size:13px;font-weight:700;color:var(--muted)}.selector-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0 16px}
 main{max-width:1120px;margin:24px auto;padding:0 16px 56px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:-4px}.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}.stat small{display:block;color:var(--muted);font-size:12px}.stat strong{font-size:25px;color:var(--purple)}
 .panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin-top:18px;box-shadow:var(--shadow)}
@@ -20,23 +21,23 @@ h2{font-size:20px;margin:0 0 14px}.sub{font-size:13px;color:var(--muted);margin:
 .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:760px;font-size:13px}th,td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{background:#f6f2f8;color:#5d536e;font-weight:700;position:sticky;top:0}tbody tr:hover{background:#fcf9fd}td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}.points{font-weight:800;color:var(--purple);font-size:16px}.rank{color:#8b789d;font-weight:800}.song{white-space:normal;min-width:180px}.empty{padding:22px;text-align:center;color:var(--muted)}
 .badge{display:inline-block;background:#f5eff8;color:#68547e;border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700}.draft{background:#fff4d9;color:#805c17}.event-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}.event-head h2{margin-bottom:4px}.event-meta{font-size:13px;color:var(--muted)}.event-total{background:var(--pink);border-radius:12px;padding:10px 14px;text-align:right}.event-total strong{display:block;font-size:22px;color:var(--purple)}.detail-btn{border:0;background:transparent;color:#655080;text-decoration:underline;cursor:pointer;font-size:12px;padding:0}.details{display:none;background:#fbf8fc;padding:10px 12px;white-space:normal;min-width:260px}.details.open{display:block}.details span{display:inline-block;margin:3px 9px 3px 0;color:#514b5c}.details b{color:var(--purple)}
 footer{max-width:1120px;margin:auto;padding:0 16px 28px;color:var(--muted);font-size:12px;line-height:1.7}
-@media(max-width:650px){header{padding:28px 16px}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:21px}.panel{padding:14px;margin-top:14px}.stats .stat small{font-size:11px}}
+@media(max-width:650px){header{padding:10px 10px 18px}.hero{border-radius:16px}.hero-art{height:280px;object-position:58% center}.hero-copy{left:10px;top:auto;bottom:10px;transform:none;width:calc(100% - 20px);padding:12px 14px;background:linear-gradient(90deg,rgba(38,26,59,.82),rgba(38,26,59,.52))}.hero h1{font-size:25px;margin:5px 0}.hero p{font-size:12px}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:21px}.panel{padding:14px;margin-top:14px}.stats .stat small{font-size:11px}select{width:100%;min-width:0}.selector-row{display:grid;grid-template-columns:1fr;gap:6px}}
 </style>
 </head>
 <body>
-<header><div class="hero"><div class="eyebrow">MIRIPAN YAKAI · POINTS</div><h1>みりぱん夜会 ポイント一覧</h1><p>各回の参加記録とポイント、みんなの累計ポイントを確認できます。</p></div></header>
+<header><div class="hero"><img class="hero-art" src="night-party-banner.png" alt="みりちゃんとミル、リルが夜会を楽しむイラスト"><div class="hero-copy"><div class="eyebrow">MIRIPAN YAKAI · POINTS</div><h1>みりぱん夜会</h1><p>みんなで楽しむ夜会の思い出とポイントを、ここに集めました。</p></div></div></header>
 <main>
 <section class="stats" id="stats"></section>
 <section class="panel">
   <h2>🏆 累計ポイントランキング</h2>
   <p class="sub">各イベントシートに記載された参加者名ごとに集計しています。ポイント未入力の回は0ポイントとして扱います。</p>
-  <div class="toolbar"><input id="rankSearch" type="search" placeholder="参加者名で検索"></div>
+  <div class="selector-row"><label for="rankSelect">参加者を選択</label><select id="rankSelect"><option value="">全員のランキングを表示</option></select></div>
   <div class="table-wrap"><table><thead><tr><th>順位</th><th>参加者</th><th class="num">VO1</th><th class="num">VO2</th><th class="num">第3回</th><th class="num">VO5</th><th class="num">VO6</th><th class="num">累計</th><th class="num">参加回数</th></tr></thead><tbody id="ranking"></tbody></table></div>
 </section>
 <section class="panel">
   <h2>📋 各回のポイント詳細</h2>
   <p class="sub">回を切り替えると、参加者ごとのポイント内訳・リクエスト曲を確認できます。</p>
-  <nav class="tabs" id="tabs" aria-label="イベント選択"></nav>
+  <div class="selector-row"><label for="eventSelect">開催回</label><select id="eventSelect"></select><label for="eventPersonSelect">参加者</label><select id="eventPersonSelect"><option value="">全員を表示</option></select></div>
   <div id="eventView"></div>
 </section>
 </main>
@@ -46,32 +47,51 @@ const EVENTS = [{"id":"VO1","title":"みりぱん夜会 VO1","date":"記載な�
 const labels={attendance:"出席",bonus:"通常ボーナス",special:"特別出席",quiz:"みりクイズ",groupQuiz:"みんなクイズ",songQuiz:"歌クイズ",intro:"イントロ",clap:"パチパチ",janken:"じゃんけん"};
 const ids=["VO1","VO2","VO3","VO5","VO6"];
 const fmt=n=>Number(n||0).toLocaleString("ja-JP");
-const allPeople=[...new Set(EVENTS.flatMap(e=>e.people.map(p=>p.name)))];
+const allPeople=[...new Set(EVENTS.flatMap(e=>e.people.filter(p=>p.name&&!p.name.startsWith("空欄は0点として集計")).map(p=>p.name)))];
 const totals=allPeople.map(name=>{let by={};let count=0;let total=0;EVENTS.forEach(e=>{const p=e.people.find(x=>x.name===name);by[e.id]=p?p.total:0;if(p&&p.total>0)count++;total+=by[e.id]});return {name,by,count,total}});
 totals.sort((a,b)=>b.total-a.total||a.name.localeCompare(b.name,"ja"));
 const stats=document.getElementById("stats");
 const sumPoints=EVENTS.reduce((s,e)=>s+e.totalPoints,0);
 const activeEvents=EVENTS.filter(e=>!e.isDraft).length;
 stats.innerHTML=`<div class="stat"><small>掲載イベント</small><strong>${EVENTS.length}回</strong></div><div class="stat"><small>ポイント集計済み</small><strong>${activeEvents}回</strong></div><div class="stat"><small>累計ポイント合計</small><strong>${fmt(sumPoints)} P</strong></div>`;
+function fillRankSelect(){
+ const sel=document.getElementById("rankSelect");
+ sel.innerHTML='<option value="">全員のランキングを表示</option>'+[...allPeople].sort((a,b)=>a.localeCompare(b,"ja")).map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join("");
+}
 function renderRanking(){
- const q=document.getElementById("rankSearch").value.trim().toLowerCase();
- const rows=totals.filter(x=>x.name.toLowerCase().includes(q));
- document.getElementById("ranking").innerHTML=rows.length?rows.map((x,i)=>`<tr><td class="rank">${i+1}</td><td><b>${esc(x.name)}</b></td>${ids.map(id=>`<td class="num">${fmt(x.by[id])}</td>`).join("")}<td class="num points">${fmt(x.total)} P</td><td class="num">${x.count}</td></tr>`).join(""):`<tr><td colspan="9" class="empty">該当する参加者はいません。</td></tr>`;
+ const chosen=document.getElementById("rankSelect").value;
+ const rows=totals.filter(x=>!chosen||x.name===chosen);
+ document.getElementById("ranking").innerHTML=rows.length?rows.map((x,i)=>`<tr><td class="rank">${chosen?totals.findIndex(t=>t.name===x.name)+1:i+1}</td><td><b>${esc(x.name)}</b></td>${ids.map(id=>`<td class="num">${fmt(x.by[id])}</td>`).join("")}<td class="num points">${fmt(x.total)} P</td><td class="num">${x.count}</td></tr>`).join(""):`<tr><td colspan="9" class="empty">参加者データがありません。</td></tr>`;
 }
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-document.getElementById("rankSearch").addEventListener("input",renderRanking);
+fillRankSelect();
+document.getElementById("rankSelect").addEventListener("change",renderRanking);
 renderRanking();
-let current=EVENTS[EVENTS.length-1].id;
-function renderTabs(){document.getElementById("tabs").innerHTML=EVENTS.map(e=>`<button class="tab ${e.id===current?"active":""}" data-id="${e.id}">${e.id==="VO3"?"第3回":e.id}</button>`).join("");document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{current=b.dataset.id;renderTabs();renderEvent()}));}
+let current=(EVENTS.filter(e=>!e.isDraft).slice(-1)[0]||EVENTS[0]).id;
+function fillEventSelect(){
+ const sel=document.getElementById("eventSelect");
+ sel.innerHTML=EVENTS.map(e=>`<option value="${e.id}">${esc(e.title)}${e.isDraft?"（ポイント未入力）":""}</option>`).join("");
+ sel.value=current;
+}
+function fillEventPersonSelect(){
+ const e=EVENTS.find(x=>x.id===current);
+ const sel=document.getElementById("eventPersonSelect");
+ const names=[...new Set(e.people.filter(p=>p.name&&!p.name.startsWith("空欄は0点として集計")).map(p=>p.name))].sort((a,b)=>a.localeCompare(b,"ja"));
+ sel.innerHTML='<option value="">全員を表示</option>'+names.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join("");
+ sel.value="";
+}
 function renderEvent(){
- const e=EVENTS.find(x=>x.id===current);const q=(document.getElementById("eventSearch")?.value||"").trim().toLowerCase();
- const people=e.people.filter(p=>p.name.toLowerCase().includes(q));
+ const e=EVENTS.find(x=>x.id===current);
+ const chosen=document.getElementById("eventPersonSelect").value;
+ const people=e.people.filter(p=>p.name&&!p.name.startsWith("空欄は0点として集計")&&(!chosen||p.name===chosen));
  const view=document.getElementById("eventView");
  const draft=e.isDraft?'<span class="badge draft">ポイント未入力</span>':'<span class="badge">集計済み</span>';
- view.innerHTML=`<div class="event-head"><div><h2>${esc(e.title)} ${draft}</h2><div class="event-meta">${esc(e.date)}　·　参加者 ${e.participantCount}名</div></div><div class="event-total"><small>この回の合計</small><strong>${fmt(e.totalPoints)} P</strong></div></div><div class="toolbar"><input id="eventSearch" type="search" placeholder="参加者名で検索" value="${esc(q)}"><span class="hint">名前を押すとポイント内訳を表示</span></div><div class="table-wrap"><table><thead><tr><th>No.</th><th>参加者</th><th class="num">合計P</th><th>リクエスト曲</th><th>アーティスト</th><th>内訳</th></tr></thead><tbody>${people.length?people.map((p,i)=>`<tr><td>${i+1}</td><td><b>${esc(p.name)}</b></td><td class="num points">${fmt(p.total)} P</td><td class="song">${esc(p.song||"—")}</td><td class="song">${esc(p.artist||"—")}</td><td><button class="detail-btn" data-name="${esc(p.name)}">内訳を見る</button><div class="details" id="d-${i}">${Object.entries(labels).filter(([k])=>p[k]>0).map(([k,v])=>`<span>${v} <b>${fmt(p[k])}P</b></span>`).join("")||"ポイント記載なし"}${p.note?`<p>備考：${esc(p.note)}</p>`:""}</div></td></tr>`).join(""):`<tr><td colspan="6" class="empty">該当する参加者はいません。</td></tr>`}</tbody></table></div>`;
- document.getElementById("eventSearch").addEventListener("input",renderEvent);
+ view.innerHTML=`<div class="event-head"><div><h2>${esc(e.title)} ${draft}</h2><div class="event-meta">${esc(e.date)}　·　参加者 ${e.participantCount}名</div></div><div class="event-total"><small>この回の合計</small><strong>${fmt(e.totalPoints)} P</strong></div></div><div class="table-wrap"><table><thead><tr><th>No.</th><th>参加者</th><th class="num">合計P</th><th>リクエスト曲</th><th>アーティスト</th><th>内訳</th></tr></thead><tbody>${people.length?people.map((p,i)=>`<tr><td>${i+1}</td><td><b>${esc(p.name)}</b></td><td class="num points">${fmt(p.total)} P</td><td class="song">${esc(p.song||"—")}</td><td class="song">${esc(p.artist||"—")}</td><td><button class="detail-btn" data-row="${i}">内訳を見る</button><div class="details" id="d-${i}">${Object.entries(labels).filter(([k])=>p[k]>0).map(([k,v])=>`<span>${v} <b>${fmt(p[k])}P</b></span>`).join("")||"ポイント記載なし"}${p.note?`<p>備考：${esc(p.note)}</p>`:""}</div></td></tr>`).join(""):`<tr><td colspan="6" class="empty">参加者データがありません。</td></tr>`}</tbody></table></div>`;
  view.querySelectorAll(".detail-btn").forEach((b,i)=>b.addEventListener("click",()=>document.getElementById("d-"+i).classList.toggle("open")));
 }
-renderTabs();renderEvent();
+fillEventSelect();fillEventPersonSelect();
+document.getElementById("eventSelect").addEventListener("change",e=>{current=e.target.value;fillEventPersonSelect();renderEvent();});
+document.getElementById("eventPersonSelect").addEventListener("change",renderEvent);
+renderEvent();
 </script>
 </body></html>
